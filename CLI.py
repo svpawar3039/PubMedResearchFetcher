@@ -25,20 +25,18 @@ def main():
 
     # Fetch PubMed articles
     articles = fetch_pubmed_papers(args.query, args.num, args.email)
-    print(f"articles successfully came:  {articles} ")
 
     # Output results
     if args.file:
-       def save_to_csv(articles, filename="pubmed_papers.csv"):
-             try:
-                 with open(filename, mode="w", newline="", encoding="utf-8") as file:
-                  writer = csv.DictWriter(file, fieldnames=[
-                     "PubMedID", "Title", "PubDate", "NonAcademicAuthor", "CompanyName", "AssociatedEmail"
+            try:
+                with open("pubmed_research_papers", mode="w", newline="", encoding="utf-8") as file:
+                    writer = csv.DictWriter(file, fieldnames=[
+                         "PubMedID", "Title", "PubDate", "NonAcademicAuthor", "CompanyName", "AssociatedEmail"
                     ])
-                  writer.writeheader()
-                  writer.writerows(articles)
-                  print(f"Results saved to {filename}")
-             except Exception as e:
+                    writer.writeheader()
+                    writer.writerows(articles)
+                    print("Results saved to pubmed_research_papers")
+            except Exception as e:
                 print(f"An error occurred while saving to CSV: {e}")
 
     else:
