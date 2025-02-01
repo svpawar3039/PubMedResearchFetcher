@@ -5,10 +5,10 @@ import csv
 
 def main():
     # Create an ArgumentParser object
-    parser = argparse.ArgumentParser(description="Fetch research papers from PubMed.")
+    parser = argparse.ArgumentParser(description="Fetch research papers  PubMed.")
 
     # Positional argument: Query
-    parser.add_argument("query", help="Search query for PubMed articles")
+    parser.add_argumcent("query", help="Search query for PubMed articles")
 
     # Optional arguments
     parser.add_argument("-d", "--debug", action="store_true", help="Enable debug mode")
